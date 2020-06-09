@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - 10.15.3
+cache: npm
+
+install:
+  - npm ci
+
+script:
+  - npm run test
+  - npm run build
+
+deploy:
+  provider: heroku
+  api_key: $HEROKU_TOKEN
+  app:
+    master: hackernews
